@@ -12,10 +12,10 @@
 </head>
 <body>
     <header>
-        <div id="instructions" class="instructions">
-            <button>View Instructions</button>
+        <div>
+            <a id="instructions" class="button modal-open" href="#">View Instructions</a>
             <!-- Instruction Modal showing pictures and text instructions of how to play -->
-            <div class="modal is-open">
+            <div class="modal is-open instructions">
                 <div class="modal-inner">
                     <button class="modal-close">X</button>
                     <div>
@@ -46,8 +46,8 @@
         </div>
         <!-- New Game button and confirmation modal -->
         <aside class="new-game">
-            <button class="new-game_btn">New Game</button>
-            <div class="modal">
+            <a id="new-game_modal" class="button modal-open" href="#">New Game</a>
+            <div class="modal new-game_modal">
                 <div class="modal-inner">
                     <button class="modal-close">X</button>
                     <div class="modal_confirm">
@@ -59,7 +59,7 @@
         </aside>
         <!-- Game End Modal for Win or Lose and option to play again -->
         <div class="hidden game-end">
-            <div class="modal">
+            <div id="game-end" class="modal">
                 <div class="modal-inner">
                     <button class="modal-close">X</button>
                     <div class="hidden game-end_win">

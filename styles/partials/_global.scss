@@ -34,11 +34,14 @@ a{
     text-decoration: none;
     color: inherit;
 }
-button{
+button,
+.button{
     background: transparent;
     border: 2px solid $aqua;
     border-radius: 5px;
     padding: 7px 25px;
+    font-size: 1.5rem;
+    line-height: 1rem;
     &:hover{
         background: $aqua;
         color: $dark;

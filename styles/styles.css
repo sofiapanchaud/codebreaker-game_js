@@ -47,13 +47,17 @@ a {
   color: inherit;
 }
 
-button {
+button,
+.button {
   background: transparent;
   border: 2px solid #42f2f7;
   border-radius: 5px;
   padding: 7px 25px;
+  font-size: 1.5rem;
+  line-height: 1rem;
 }
-button:hover {
+button:hover,
+.button:hover {
   background: #42f2f7;
   color: #13262f;
   cursor: pointer;
