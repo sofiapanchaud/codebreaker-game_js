@@ -1,1 +1,60 @@
-/*# sourceMappingURL=styles.css.map */
+/* Page colors */
+/* Game peg colors */
+/* Hints board colors */
+/* Responsive Sizing */
+/* Responsive Layout Sizes */
+/* Responsive Font Shrinker */
+/* Page colors */
+/* Game peg colors */
+/* Hints board colors */
+/* Responsive Sizing */
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+  font-family: "Karla", sans-serif;
+  color: #13262f;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Tourney", cursive;
+}
+
+h1 {
+  font-size: 8rem;
+  line-height: 6rem;
+}
+h2 {
+  font-size: 3.5rem;
+  line-height: 2.5rem;
+}
+p, a {
+  font-size: 1.8rem;
+  line-height: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  p, a {
+    font-size: 1.5rem;
+    line-height: 1rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: transparent;
+  border: 2px solid #42f2f7;
+  border-radius: 5px;
+  padding: 7px 25px;
+}
+button:hover {
+  background: #42f2f7;
+  color: #13262f;
+  cursor: pointer;
+}/*# sourceMappingURL=styles.css.map */
