@@ -15,16 +15,19 @@
         <div id="instructions" class="instructions">
             <button>View Instructions</button>
             <!-- Instruction Modal showing pictures and text instructions of how to play -->
-            <div class="modal">
-                <div>
-                    <h2>How to Play</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas non ullam perspiciatis at iure id cupiditate animi magnam molestiae, dolore, quidem impedit mollitia facere laborum rem. Ea nemo soluta aut?</p>
-                </div>
-                <div>
-                    <button class="modal-btn prev"><<</button>
-                    <button class="modal-btn next">>></button>
-                    <!-- Dynamically update page numbers based on the instructions slide -->
-                    <span class="page-num"></span>
+            <div class="modal is-open">
+                <div class="modal-inner">
+                    <button class="modal-close">X</button>
+                    <div>
+                        <h2>How to Play</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas non ullam perspiciatis at iure id cupiditate animi magnam molestiae, dolore, quidem impedit mollitia facere laborum rem. Ea nemo soluta aut?</p>
+                    </div>
+                    <div>
+                        <button class="modal-btn prev"><<</button>
+                        <button class="modal-btn next">>></button>
+                        <!-- Dynamically update page numbers based on the instructions slide -->
+                        <span class="page-num"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,27 +48,34 @@
         <aside class="new-game">
             <button class="new-game_btn">New Game</button>
             <div class="modal">
-                <div class="modal_confirm">
-                    <h2>Are you sure you want to start a new game?</h2>
-                    <button id="yes" class="modal_confirm-yes">Yes</button><button id="no" class="modal_confirm-no">No</button>
+                <div class="modal-inner">
+                    <button class="modal-close">X</button>
+                    <div class="modal_confirm">
+                        <h2>Are you sure you want to start a new game?</h2>
+                        <button id="yes" class="modal_confirm-yes">Yes</button><button id="no" class="modal_confirm-no">No</button>
+                    </div>
                 </div>
             </div>
         </aside>
         <!-- Game End Modal for Win or Lose and option to play again -->
         <div class="hidden game-end">
             <div class="modal">
-                <div class="hidden game-end_win">
-                    <h2>Congratulations!</h2>
-                    <p>You won in <span id="guesses"></span> rounds.</p>
+                <div class="modal-inner">
+                    <button class="modal-close">X</button>
+                    <div class="hidden game-end_win">
+                        <h2>Congratulations!</h2>
+                        <p>You won in <span id="guesses"></span> rounds.</p>
+                    </div>
+                    <div class="hidden game-end_lose">
+                        <h2>Game Over</h2>
+                        <p>You could not break the code.</p>
+                    </div>
+                    <p>The answer was <span class="game-end_result"></span></p>
+                    <div class="game-end_new">
+                        <p>Want to play again?</p>
+                        <button id="yes" class="modal_confirm-yes">Yes</button><button id="no" class="modal_confirm-no">No</button>
+                    </div>
                 </div>
-                <div class="hidden game-end_lose">
-                    <h2>Game Over</h2>
-                    <p>You could not break the code.</p>
-                </div>
-                <p>The answer was <span class="game-end_result"></span></p>
-                <div class="game-end_new">
-                    <p>Want to play again?</p>
-                    <button id="yes" class="modal_confirm-yes">Yes</button><button id="no" class="modal_confirm-no">No</button>
             </div>
         </div>
     </main>

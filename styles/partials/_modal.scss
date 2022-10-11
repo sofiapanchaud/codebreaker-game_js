@@ -1,0 +1,34 @@
+/* Modal Styles */
+.modal{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    &.is-open{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &-inner{
+        background-color: #fff;
+        width: 50%;
+        height: 50%;
+        padding: 20px 40px;
+        border: 5px solid $aqua;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &-close{
+        align-self: flex-end;
+        border: none;
+        &:hover{
+            background-color: transparent;
+        }
+    }
+} 

@@ -57,4 +57,39 @@ button:hover {
   background: #42f2f7;
   color: #13262f;
   cursor: pointer;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal.is-open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-inner {
+  background-color: #fff;
+  width: 50%;
+  height: 50%;
+  padding: 20px 40px;
+  border: 5px solid #42f2f7;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-close {
+  align-self: flex-end;
+  border: none;
+}
+.modal-close:hover {
+  background-color: transparent;
 }/*# sourceMappingURL=styles.css.map */
