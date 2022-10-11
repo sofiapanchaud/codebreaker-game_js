@@ -1,0 +1,29 @@
+{
+  "name": "codebreaker-game_js",
+  "version": "1.0.0",
+  "description": "Mastermind style game",
+  "main": "index.js",
+  "dependencies": {
+    "sass": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofiapanchaud/codebreaker-game_js.git"
+  },
+  "keywords": [
+    "game",
+    "javascript",
+    "jquery",
+    "sass",
+    "codebreaker"
+  ],
+  "author": "Sofia Panchaud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sofiapanchaud/codebreaker-game_js/issues"
+  },
+  "homepage": "https://github.com/sofiapanchaud/codebreaker-game_js#readme"
+}
