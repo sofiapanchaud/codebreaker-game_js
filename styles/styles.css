@@ -49,6 +49,7 @@ a {
 
 button,
 .button {
+  display: block;
   background: transparent;
   border: 2px solid #42f2f7;
   border-radius: 5px;
@@ -102,4 +103,45 @@ button:hover,
 }
 .modal-close:hover {
   background-color: transparent;
+}
+
+/* Game Board Styles */
+.game-board {
+  height: 75vh;
+  width: 50vw;
+  background-color: #c2c2c2;
+  border-radius: 50px;
+}
+.game-board_outer {
+  border: 10px solid #13262f;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+}
+.game-board_outer div {
+  display: inline-block;
+  height: 100%;
+  border-radius: 50px;
+}
+.game-board_guesses {
+  width: calc(60% - 10px);
+  background-color: #878E88;
+}
+.game-board_hints {
+  width: calc(40% - 10px);
+  background-color: #13262f;
+  margin-left: 10px;
+}
+.game-guess {
+  width: 50vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  background: #13262f;
+}
+.game-guess_tray {
+  width: 50%;
+}
+.game-guess_submit {
+  align-self: center;
 }/*# sourceMappingURL=styles.css.map */

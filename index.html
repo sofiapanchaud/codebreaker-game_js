@@ -15,7 +15,7 @@
         <div>
             <a id="instructions" class="button modal-open" href="#">View Instructions</a>
             <!-- Instruction Modal showing pictures and text instructions of how to play -->
-            <div class="modal is-open instructions">
+            <div class="modal instructions">
                 <div class="modal-inner">
                     <button class="modal-close">X</button>
                     <div class="modal-inner_pane">
@@ -50,16 +50,24 @@
     <main>
         <!-- The Game Board -->
         <div class="game-board">
-            <div class="game-board_guesses"></div>
-            <div class="game-board_hints"></div>
+            <div class="game-board_outer">
+                <div class="game-board_guesses">
+                    <div class="dots"></div>
+                </div>
+                <div class="game-board_hints">
+                    <div class="dots"></div>
+                </div>
+            </div>
         </div>
         <!-- User's tray to make guess and submit -->
         <div class="game-guess">
-            <div class="game-guess_tray"></div>
+            <div class="game-guess_tray">
+                <div class="dots"></div>
+            </div>
             <button class="game-guess_submit">Submit</button>
         </div>
         <!-- New Game button and confirmation modal -->
-        <aside class="new-game">
+        <!-- <div class="new-game">
             <a id="new-game_modal" class="button modal-open" href="#">New Game</a>
             <div class="modal new-game_modal">
                 <div class="modal-inner">
@@ -70,7 +78,7 @@
                     </div>
                 </div>
             </div>
-        </aside>
+        </div> -->
         <!-- Game End Modal for Win or Lose and option to play again -->
         <div class="hidden game-end">
             <div id="game-end" class="modal">

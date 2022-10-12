@@ -1,0 +1,42 @@
+/* Game Board Styles */ 
+.game{
+    &-board{
+        height: 75vh;
+        width: 50vw;
+        background-color: $light;
+        border-radius: 50px;
+        &_outer{
+            border: 10px solid $dark;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            div{
+                display: inline-block;
+                height: 100%;
+                border-radius: 50px;
+            }
+        }
+        &_guesses{
+            width: calc(60% - 10px);
+            background-color: $grey;
+        }
+        &_hints{
+            width: calc(40% - 10px);
+            background-color: $dark;
+            margin-left: 10px;
+        }
+    }
+    &-guess{
+        width: 50vw;
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        background: $dark;
+        &_tray{
+            width: 50%;
+        }
+        &_submit{
+            align-self: center;
+        }
+    }
+}
