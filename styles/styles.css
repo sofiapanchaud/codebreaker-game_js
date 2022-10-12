@@ -63,6 +63,10 @@ button:hover,
   cursor: pointer;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Modal Styles */
 .modal {
   display: none;
@@ -80,11 +84,13 @@ button:hover,
 }
 .modal-inner {
   background-color: #fff;
-  width: 50%;
-  height: 50%;
+  width: 66%;
+  height: 66%;
   padding: 20px 40px;
   border: 5px solid #42f2f7;
   border-radius: 30px;
+}
+.modal-inner, .modal-inner_pane {
   display: flex;
   flex-direction: column;
   align-items: center;

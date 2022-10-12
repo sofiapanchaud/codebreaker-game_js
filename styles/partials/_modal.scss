@@ -14,11 +14,14 @@
     }
     &-inner{
         background-color: #fff;
-        width: 50%;
-        height: 50%;
+        width: 66%;
+        height: 66%;
         padding: 20px 40px;
         border: 5px solid $aqua;
         border-radius: 30px;
+    }
+    &-inner,
+    &-inner_pane{
         display: flex;
         flex-direction: column;
         align-items: center;
