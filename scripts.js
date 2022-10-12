@@ -1,5 +1,5 @@
 const app = {};
-
+const colors = ["#cbff30", "#1832d8", "#f8abb3", "#bb02b5", "#fff200", "#cc2936"];
 app.modals = () => {
     const modal = $('.modal');
     const modalBtn = $('.modal-close');
@@ -39,6 +39,21 @@ app.modals = () => {
     })
 }
 
+app.dots = () => {
+    const rowsBoard = '.dots-rows';
+    const row = '.dots-row';
+    const dot = '.dot';
+    const clickDot = '.game-guess_tray .dot';
+
+    for (let i = 0; i < 12; i++){
+        $(rowsBoard).append(`<div class="${row.replace('.', '')}"></div>`);
+    }
+    for (let j = 0; j < 4; j++){
+        $(row).append(`<div class="${dot.replace('.', '')}"></div>`)
+    }
+}
+
 $().ready(() => {
     app.modals();
+    app.dots();
 })

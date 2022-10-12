@@ -107,7 +107,7 @@ button:hover,
 
 /* Game Board Styles */
 .game-board {
-  height: 75vh;
+  height: 100vh;
   width: 50vw;
   background-color: #c2c2c2;
   border-radius: 50px;
@@ -118,30 +118,48 @@ button:hover,
   height: 100%;
   border-radius: 50px;
 }
-.game-board_outer div {
-  display: inline-block;
-  height: 100%;
-  border-radius: 50px;
-}
 .game-board_guesses {
   width: calc(60% - 10px);
   background-color: #878E88;
+  border-radius: 50px;
+  display: inline-block;
+  height: 100%;
 }
 .game-board_hints {
   width: calc(40% - 10px);
-  background-color: #13262f;
+  background-color: #c2c2c2;
   margin-left: 10px;
+  border-radius: 50px;
+  display: inline-block;
+  height: 100%;
 }
 .game-guess {
   width: 50vw;
   height: 10vh;
   display: flex;
   justify-content: space-between;
-  background: #13262f;
+  background: #c2c2c2;
 }
 .game-guess_tray {
   width: 50%;
 }
 .game-guess_submit {
   align-self: center;
+}
+
+.dots-rows {
+  width: 100%;
+}
+.dots-row {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dot {
+  border-radius: 50%;
+  border: 3px solid #13262f;
+  width: 30px;
+  height: 30px;
 }/*# sourceMappingURL=styles.css.map */
