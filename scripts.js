@@ -6,7 +6,7 @@ app.solution = () => {
     for (let i = 0; i < 4; i++){
         answer.push(colors[Math.floor(Math.random()* 5)]);
     }
-    console.log(answer);
+    // console.log(answer);
 }
 app.modals = () => {
     const modal = $('.modal');
@@ -47,12 +47,11 @@ app.modals = () => {
     })
 }
 
+const clickDot = '.game-guess_tray .dot';
 app.dots = () => {
     const rowsBoard = '.dots-rows';
     const row = '.dots-row';
     const dot = '.dot';
-    const clickDot = '.game-guess_tray .dot';
-    const submit = '#submit'
     let ind = 0;
     for (let i = 0; i < 12; i++){
         $(rowsBoard).append(`<div class="${row.replace('.', '')}"></div>`);
@@ -66,21 +65,30 @@ app.dots = () => {
         if (ind === colors.length){
             ind = 0;
         }
+        /*
+        TODO: Should loop through all the colors for each button.
+        Right now it will go to the next color in the button
+        regardless of which one was clicked
+        */ 
     });
-    /*
-    On Submit:
-        1) Store the guess tray values
-        2) Replace each game board row with the previous row/guess value
-        3) Determine how many are correct and/or in the right spot
-        4) update the hints row according to the above
-        5) update the other hints rows with the previous values
-    */
-    app.submit(submit);
 }
 
-app.submit = (submit) => {
-    $(submit).on('click', function(){
+    /*
+    On Submit:
+    2) Replace each game board row with the previous row/guess value
+    3) Determine how many are correct and/or in the right spot
+    4) update the hints row according to the above
+    5) update the other hints rows with the previous values
+    */
+app.submit = () => {
+    $('#submit').on('click', function(){
+    // 1) Store the guess tray values
+    const guessArr = Array.from($(clickDot));
+    const guessVal = guessArr.map((c) => {
+        return $(c).attr('style').split(' ').pop();
+    });
 
+    
     })
 }
 
@@ -88,4 +96,5 @@ $().ready(() => {
     app.modals();
     app.dots();
     app.solution();
+    app.submit();
 })
