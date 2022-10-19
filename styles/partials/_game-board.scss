@@ -45,6 +45,8 @@
 .dots{
     &-rows{
         width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
     }
     &-row{
         width: 100%;

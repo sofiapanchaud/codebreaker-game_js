@@ -6,7 +6,7 @@ app.solution = () => {
     for (let i = 0; i < 4; i++){
         answer.push(colors[Math.floor(Math.random()* 5)]);
     }
-    // console.log(answer);
+    console.log('answer: ', answer);
 }
 app.modals = () => {
     const modal = $('.modal');
@@ -71,20 +71,29 @@ app.dots = () => {
 
     /*
     On Submit:
-    2) Replace each game board row with the previous row/guess value
     3) Determine how many are correct and/or in the right spot
     4) update the hints row according to the above
     5) update the other hints rows with the previous values
     */
 app.submit = () => {
+    let rowInd = 0;
     $('#submit').on('click', function(){
-    // 1) Store the guess tray values
-    const guessArr = Array.from($(clickDot));
-    const guessVal = guessArr.map((c) => {
-        return $(c).attr('style').split(' ').pop();
-    });
-
-    
+        // 1) Store the guess tray values
+        if (!$(clickDot).attr('style')){
+            alert('please enter your entire guess');
+        } else {
+            const guessArr = Array.from($(clickDot));
+            const guessVal = guessArr.map((c) => {
+                return $(c).attr('style').split(' ').pop();
+            });
+            console.log('guess: ', guessVal);
+            // 2) Replace each game board row with the previous row/guess value
+            const guessBoardRow = Array.from($(`.game-board_guesses ${row}`));
+            $(guessBoardRow[rowInd]).find(dot).attr('style', function(){
+                console.log($(this))
+                // console.log(`background-color: ${guessVal.indexOf($(this))}`)
+            })
+        }
     })
 }
 
