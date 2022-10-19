@@ -48,10 +48,10 @@ app.modals = () => {
 }
 
 const clickDot = '.game-guess_tray .dot';
+const rowsBoard = '.dots-rows';
+const row = '.dots-row';
+const dot = '.dot';
 app.dots = () => {
-    const rowsBoard = '.dots-rows';
-    const row = '.dots-row';
-    const dot = '.dot';
     let ind = 0;
     for (let i = 0; i < 12; i++){
         $(rowsBoard).append(`<div class="${row.replace('.', '')}"></div>`);
@@ -60,16 +60,12 @@ app.dots = () => {
         $(row).append(`<div class="${dot.replace('.', '')}"></div>`)
     }
     $(clickDot).on('click', function(){
-        $(this).attr('style', `background-color: ${colors[ind]}`);
-        ind = ind + 1;
-        if (ind === colors.length){
+        if (!$(this).attr('style')){
             ind = 0;
+        } else {
+            ind = colors.indexOf($(this).attr('style').split(' ').pop()) + 1;
         }
-        /*
-        TODO: Should loop through all the colors for each button.
-        Right now it will go to the next color in the button
-        regardless of which one was clicked
-        */ 
+        $(this).attr('style', `background-color: ${colors[ind++ % colors.length]}`);
     });
 }
 
