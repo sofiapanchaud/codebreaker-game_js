@@ -90,13 +90,32 @@ app.submit = () => {
             // 2) Replace each game board row with the previous row/guess value
             const guessBoardRow = Array.from($(`.game-board_guesses ${row}`));
             const currentRow = $(guessBoardRow[rowInd]);
-            const rowDotArr = Array.from($(currentRow).find(dot))
-            $(currentRow).find(dot).attr('style', function(){
-                const dotInd = rowDotArr.indexOf(this);
+            const firstRow = $(guessBoardRow[0]);
+            const rowDotArr = Array.from($(currentRow).find(dot));
+            const firstDotArr = Array.from($(firstRow).find(dot));
+            const prevRow = $(guessBoardRow[rowInd - 1]);
+            $(firstRow).find(dot).attr('style', function(){
+                const dotInd = firstDotArr.indexOf(this);
                 return `background-color: ${guessVal[dotInd]}`;
-            })
+            });
+            if (rowInd > 0 && rowInd < 12){
+                $(currentRow).find(dot).attr('style', function(){
+                    const dotInd = rowDotArr.indexOf(this);
+                    return `background-color: ${firstDotArr[dotInd]}`;
+                });
+            }
+            rowInd++ ;
+
+
         }
     })
+}
+
+const rowUpdate = (row, arr, prev) => {
+    $(row).find(dot).attr('style', function(){
+        const dotInd = arr.indexOf(this);
+        return `background-color: ${guessVal[dotInd]}`;
+    });
 }
 
 $().ready(() => {
