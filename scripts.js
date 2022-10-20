@@ -91,17 +91,22 @@ app.submit = () => {
             const guessBoardRow = Array.from($(`.game-board_guesses ${row}`));
             const currentRow = $(guessBoardRow[rowInd]);
             const firstRow = $(guessBoardRow[0]);
-            const rowDotArr = Array.from($(currentRow).find(dot));
+            // const rowDotArr = Array.from($(currentRow).find(dot));
             const firstDotArr = Array.from($(firstRow).find(dot));
-            const prevRow = $(guessBoardRow[rowInd - 1]);
+            // const prevRow = Array.from($(guessBoardRow[rowInd - 1]).find(dot));
             $(firstRow).find(dot).attr('style', function(){
                 const dotInd = firstDotArr.indexOf(this);
                 return `background-color: ${guessVal[dotInd]}`;
             });
             if (rowInd > 0 && rowInd < 12){
-                $(currentRow).find(dot).attr('style', function(){
-                    const dotInd = rowDotArr.indexOf(this);
-                    return `background-color: ${firstDotArr[dotInd]}`;
+                $(guessBoardRow).each((r) => {
+                    const rowDotArr = Array.from($(guessBoardRow[r]).find(dot));
+                    const prevRow = guessBoardRow[r - 1];
+                    const prevArr = Array.from($(prevRow).find(dot));
+                    // TODO: getting close. This updates all the rows now at the same time
+                    if (r !== 0 && $(prevArr[0]).attr('style')){
+                        rowUpdate(guessBoardRow[r], rowDotArr, prevArr);
+                    }
                 });
             }
             rowInd++ ;
@@ -112,9 +117,14 @@ app.submit = () => {
 }
 
 const rowUpdate = (row, arr, prev) => {
+    console.log(row, arr, prev);
+    const colorHex = prev.map((c) => {
+        return $(c).attr('style').split(' ').pop();
+        
+    });
     $(row).find(dot).attr('style', function(){
         const dotInd = arr.indexOf(this);
-        return `background-color: ${guessVal[dotInd]}`;
+        return `background-color: ${colorHex[dotInd]}`;
     });
 }
 
