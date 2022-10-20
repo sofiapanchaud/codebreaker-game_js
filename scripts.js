@@ -89,9 +89,11 @@ app.submit = () => {
             console.log('guess: ', guessVal);
             // 2) Replace each game board row with the previous row/guess value
             const guessBoardRow = Array.from($(`.game-board_guesses ${row}`));
-            $(guessBoardRow[rowInd]).find(dot).attr('style', function(){
-                console.log($(this))
-                // console.log(`background-color: ${guessVal.indexOf($(this))}`)
+            const currentRow = $(guessBoardRow[rowInd]);
+            const rowDotArr = Array.from($(currentRow).find(dot))
+            $(currentRow).find(dot).attr('style', function(){
+                const dotInd = rowDotArr.indexOf(this);
+                return `background-color: ${guessVal[dotInd]}`;
             })
         }
     })
