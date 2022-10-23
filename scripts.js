@@ -49,6 +49,8 @@ app.modals = () => {
 
 const clickDot = '.game-guess_tray .dot';
 const rowsBoard = '.dots-rows';
+const guessRows = '.game-board_guesses';
+const matchRows = '.game-board_hints';
 const row = '.dots-row';
 const dot = '.dot';
 app.dots = () => {
@@ -84,32 +86,64 @@ app.submit = () => {
 
         const guessArr = Array.from($(clickDot));
         // 2) Replace each game board row with the guess value
-        const guessBoardRow = Array.from($(`.game-board_guesses ${row}`));
-        const currentRow = $(guessBoardRow[rowInd]);
-        const rowDotArr = Array.from($(guessBoardRow[rowInd]).find(dot));
-        rowUpdate(currentRow, rowDotArr, guessArr)
-        rowInd++ ;
-        /*
-            TODO: Replace this with the win/lose modal
-        */ 
-        if (rowInd > 12){
-            alert('game over!');
-        }
-
+        // const guessBoardRow = Array.from($(`.game-board_guesses ${row}`));
+        // const currentRow = $(guessBoardRow[rowInd]);
+        // const rowDotArr = Array.from($(guessBoardRow[rowInd]).find(dot));
+        const colorHex = guessArr.map((c) => {
+            return $(c).attr('style').split(' ').pop();
+        });
+        getRowInfo(guessRows, rowInd, colorHex);
         // 3) Determine how many are correct and/or in the right spot
+            // Compare the solution value to the current guess value
+            // If the value exists anywhere in the array, mark one as correct but out of place
+            // If the value exists in the array AND at the same index mark as correct and in the right place
+            const matchArr = [];
+            answer.map((a, i) => {
+                if (a === colorHex[i]){
+                    matchArr.push('green');
+                }
+            });
+            for (let i = 0; i < answer.length; i++){
+                for (let j = 0; j < colorHex.length; j++){
+                    if (answer[i] === colorHex[j] && matchArr.length < 4 ){
+                        if (answer.indexOf(colorHex[j]) !== colorHex.indexOf(answer[i])){
+                            matchArr.push('orange');
+                        }
+                    }
+                }
+            }
+            const matchHex = [];
+            matchArr.forEach((m) => {
+                if (m === 'green'){
+                    matchHex.push('#00FF00');
+                } else {
+                    matchHex.push('#FFA500');
+                }
+                console.log(matchHex)
+                getRowInfo(matchRows, rowInd, matchHex);
+            })
 
+            rowInd++ ;
+            /*
+                TODO: Replace this with the win/lose modal
+            */ 
+            if (rowInd > 12){
+                alert('game over!');
+            }
     })
 }
 
+const getRowInfo = (selector, index, colors) => {
+    const boardRow = Array.from($(`${selector} ${row}`));
+    const currentRow = $(boardRow[index]);
+    const rowDotArr = Array.from($(currentRow).find(dot));
+    return rowUpdate(currentRow, rowDotArr, colors);
+}
+
 const rowUpdate = (row, arr, guess) => {
-    console.log(row, arr, guess);
-    const colorHex = guess.map((c) => {
-        return $(c).attr('style').split(' ').pop();
-        
-    });
     $(row).find(dot).attr('style', function(){
         const dotInd = arr.indexOf(this);
-        return `background-color: ${colorHex[dotInd]}`;
+        return `background-color: ${guess[dotInd]}`;
     });
 }
 
