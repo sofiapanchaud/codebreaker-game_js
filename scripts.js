@@ -71,7 +71,6 @@ app.dots = () => {
 
     /*
     On Submit:
-    3) Determine how many are correct and/or in the right spot
     4) update the hints row according to the above
     5) update the other hints rows with the previous values
     */
@@ -81,44 +80,30 @@ app.submit = () => {
         // 1) Store the guess tray values
         if (!$(clickDot).attr('style')){
             alert('please enter your entire guess');
-        } else {
-            const guessArr = Array.from($(clickDot));
-            const guessVal = guessArr.map((c) => {
-                return $(c).attr('style').split(' ').pop();
-            });
-            console.log('guess: ', guessVal);
-            // 2) Replace each game board row with the previous row/guess value
-            const guessBoardRow = Array.from($(`.game-board_guesses ${row}`));
-            const currentRow = $(guessBoardRow[rowInd]);
-            const firstRow = $(guessBoardRow[0]);
-            // const rowDotArr = Array.from($(currentRow).find(dot));
-            const firstDotArr = Array.from($(firstRow).find(dot));
-            // const prevRow = Array.from($(guessBoardRow[rowInd - 1]).find(dot));
-            $(firstRow).find(dot).attr('style', function(){
-                const dotInd = firstDotArr.indexOf(this);
-                return `background-color: ${guessVal[dotInd]}`;
-            });
-            if (rowInd > 0 && rowInd < 12){
-                $(guessBoardRow).each((r) => {
-                    const rowDotArr = Array.from($(guessBoardRow[r]).find(dot));
-                    const prevRow = guessBoardRow[r - 1];
-                    const prevArr = Array.from($(prevRow).find(dot));
-                    // TODO: getting close. This updates all the rows now at the same time
-                    if (r !== 0 && $(prevArr[0]).attr('style')){
-                        rowUpdate(guessBoardRow[r], rowDotArr, prevArr);
-                    }
-                });
-            }
-            rowInd++ ;
+        } 
 
-
+        const guessArr = Array.from($(clickDot));
+        // 2) Replace each game board row with the guess value
+        const guessBoardRow = Array.from($(`.game-board_guesses ${row}`));
+        const currentRow = $(guessBoardRow[rowInd]);
+        const rowDotArr = Array.from($(guessBoardRow[rowInd]).find(dot));
+        rowUpdate(currentRow, rowDotArr, guessArr)
+        rowInd++ ;
+        /*
+            TODO: Replace this with the win/lose modal
+        */ 
+        if (rowInd > 12){
+            alert('game over!');
         }
+
+        // 3) Determine how many are correct and/or in the right spot
+
     })
 }
 
-const rowUpdate = (row, arr, prev) => {
-    console.log(row, arr, prev);
-    const colorHex = prev.map((c) => {
+const rowUpdate = (row, arr, guess) => {
+    console.log(row, arr, guess);
+    const colorHex = guess.map((c) => {
         return $(c).attr('style').split(' ').pop();
         
     });
