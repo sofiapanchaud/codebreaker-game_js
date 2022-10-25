@@ -98,20 +98,16 @@ app.submit = () => {
             // If the value exists anywhere in the array, mark one as correct but out of place
             // If the value exists in the array AND at the same index mark as correct and in the right place
             const matchArr = [];
-            answer.map((a, i) => {
+            answer.filter((a, i) => {
                 if (a === colorHex[i]){
                     matchArr.push('green');
+                } else if (answer.includes(colorHex[i]) && a !== colorHex[i]){
+                    matchArr.push('orange');
+                } else {
+                    console.log('nothing to see here');
                 }
             });
-            for (let i = 0; i < answer.length; i++){
-                for (let j = 0; j < colorHex.length; j++){
-                    if (answer[i] === colorHex[j] && matchArr.length < 4 ){
-                        if (answer.indexOf(colorHex[j]) !== colorHex.indexOf(answer[i])){
-                            matchArr.push('orange');
-                        }
-                    }
-                }
-            }
+            console.log(matchArr);
             const matchHex = [];
             matchArr.forEach((m) => {
                 if (m === 'green'){
@@ -119,7 +115,7 @@ app.submit = () => {
                 } else {
                     matchHex.push('#FFA500');
                 }
-                console.log(matchHex)
+                // console.log(matchHex)
                 getRowInfo(matchRows, rowInd, matchHex);
             })
 
