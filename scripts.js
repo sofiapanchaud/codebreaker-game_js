@@ -148,11 +148,17 @@ const modals = () => {
                 $(this).attr('disabled', true);
             }
         }
-        console.log(page);
         if (page !== 0 && page !== modalPane.length - 1){
             pager.attr('disabled', false);
         }
     });
+    // New game buttons
+    $('.reset').on('click', () => {
+        location.reload();
+    });
+    $('#no').on('click', () => {
+        $('.new-game_modal').removeClass('is-open');
+    })
 }
 
 $().ready(() => {

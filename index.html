@@ -67,18 +67,19 @@
             <button id="submit" class="game-guess_submit">Submit</button>
         </div>
         <!-- New Game button and confirmation modal -->
-        <!-- <div class="new-game">
+        <div class="new-game">
             <a id="new-game_modal" class="button modal-open" href="#">New Game</a>
             <div class="modal new-game_modal">
                 <div class="modal-inner">
                     <button class="modal-close">X</button>
                     <div class="modal_confirm">
                         <h2>Are you sure you want to start a new game?</h2>
-                        <button id="yes" class="modal_confirm-yes">Yes</button><button id="no" class="modal_confirm-no">No</button>
+                        <button id="yes" class="reset modal_confirm-yes">Yes</button>
+                        <button id="no" class="modal_confirm-no">No</button>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- Game End Modal for Win or Lose and option to play again -->
         <div class="hidden game-end">
             <div id="game-end" class="modal">
@@ -95,7 +96,7 @@
                     <p>The answer was <span class="game-end_result"></span></p>
                     <div class="game-end_new">
                         <p>Want to play again?</p>
-                        <button id="yes" class="modal_confirm-yes">Yes</button><button id="no" class="modal_confirm-no">No</button>
+                        <button id="play" class="reset modal_confirm-yes">Yes</button><button id="no" class="modal_confirm-no">No</button>
                     </div>
                 </div>
             </div>
