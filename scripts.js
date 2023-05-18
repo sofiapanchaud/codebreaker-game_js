@@ -152,13 +152,25 @@ const modals = () => {
             pager.attr('disabled', false);
         }
     });
-    // New game buttons
+    // if ($('.new-game_modal').hasClass('is-open')){
+    //     console.log('is open');
+    //     modalButtons('.new-game_modal')
+    // }
+}
+
+// New game buttons
     $('.reset').on('click', () => {
         location.reload();
     });
     $('#no').on('click', () => {
-        $('.new-game_modal').removeClass('is-open');
-    })
+        console.log('click!')
+        $('.modal').removeClass('is-open');
+    });
+
+const gameOutcome = (win) => {
+    if (!win){
+        $('.game-end_lose').removeClass('hidden')
+    }
 }
 
 $().ready(() => {
